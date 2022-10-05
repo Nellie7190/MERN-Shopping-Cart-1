@@ -1,5 +1,5 @@
-// const Order = require('../../models/order');
-// const Item = require('../../models/item');
+const Order = require('../../models/order');
+const Item = require('../../models/item');
 
 module.exports = {
   cart,
@@ -10,7 +10,8 @@ module.exports = {
 
 // A cart is the unpaid order for a user
 async function cart(req, res) {
-
+  const cart = await Order.getCart(req.user._id);
+  res.json(cart);
 }
 
 // Add an item to the cart

@@ -40,4 +40,18 @@ Data serialization is the process of converting an object into a stream of bytes
 Serialization enables us to save the state of an object and recreate the object in a new location. Serialization encompasses both the storage of the object and exchange of data. 
 
 
+[Javascript Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+
 [What is Serialization?](https://hazelcast.com/glossary/serialization/)
+
+[Hooks for Custom Statics](http://thecodebarbarian.com/mongoose-5-5-static-hooks-and-populate-match-functions.html#:~:text=Statics%20are%20Mongoose's%20implementation%20of,you%20compile%20with%20that%20schema.&text=Mongoose%205.5%20introduces%20the%20ability,pre('findByName')%20.)
+
+Statics are Mongoose's implementation of OOP static functions. You add a static function to your schema, and Mongoose attaches it to any model you compile with that schema.
+
+[Methods and Statics](https://mongoosejs.com/docs/2.7.x/docs/methods-statics.html)
+
+[What is the difference between methods and statics in Mongoose?](https://stackoverflow.com/questions/23425303/what-is-the-difference-between-methods-and-statics-in-mongoose)
+
+Methods operate on an instance of a model. Statics behave as helper functions only and can perform any action you want, including collection level searching. They aren't tied to an instance of a Model. But methods are also defined on models and work on all the instances of that model.
+
+[findOneAndUpdate](// https://mongoosejs.com/docs/tutorials/findoneandupdate.html)

@@ -14,7 +14,7 @@ const lineItemSchema = new Schema({
   timestamps: true,
   // If you want virtual field to be displayed on client-side, set virtuals: true for toJSON in schema options below.
   // Mongoose will now invoke all these virtual properties and include their values when the document is either printed or sent.
-  toJSON: { virtuals: true },
+  toJSON: { virtuals: true }
 });
 
 lineItemSchema.virtual('extPrice').get(function () {
@@ -36,7 +36,36 @@ const orderSchema = new Schema({
   isPaid: { type: Boolean, default: false },
 }, {
   // Timestamp for an order
-  timestamps: true
+  timestamps: true,
+  toJSON: { virtuals: true }
 })
+
+orderSchema.virtual('orderTotal').get(function () {
+  return this.lineItems.reduce((total, item) => total + item.extPrice, 0);
+})
+
+orderSchema.virtual('totalQty').get(function () {
+  return this.lineItems.reduce((total, item) => total + item.qty, 0);
+})
+
+orderSchema.virtual('orderId').get(function () {
+  return this.id.slice(-6).toUpperCase();
+})
+
+// statics are callable on the model, not an instance (document)
+orderSchema.statics.getCart = function (userId) {
+  // 'this' is bound to the model (don't use an arrow function)
+  // return the promise that resolves to a cart (the user's unpaid order)
+  return this.findOneAndUpdate(
+    // query
+    { user: userId, isPaid: false },
+    // update - in the case the order (cart) is upserted
+    { user: userId },
+    // upsert option creates the doc if it doesn't exist!
+    { upsert: true, new: true }
+  );
+};
+
+
 
 module.exports = mongoose.model('Order', orderSchema);
