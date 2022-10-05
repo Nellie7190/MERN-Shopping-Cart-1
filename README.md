@@ -5,7 +5,7 @@
 ```
 cd Desktop
 cd seir-7-25/unit-04
-git clone 
+git clone git@git.generalassemb.ly:SEIR-7-25/MERN-Shopping-Cart-Part-1.git 
 cd MERN-Shopping-Cart-Part-1
 npm i
 npm run build
