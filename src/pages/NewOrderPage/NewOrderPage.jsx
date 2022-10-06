@@ -40,8 +40,8 @@ export default function NewOrderPage({ user, setUser }) {
 
   /*--- Event Handlers ---*/
   async function handleAddToOrder(itemId) {
-    // Alert Message Popup SPAM
-    alert(`add item: ${itemId}`)
+    const cart = await ordersAPI.addItemToCart(itemId)
+    setCart(cart)
   }
 
   return (
