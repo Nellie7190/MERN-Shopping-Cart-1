@@ -20,8 +20,10 @@ export default function OrderHistoryPage({ user, setUser }) {
     <>
       <h1>OrderHistoryPage</h1>
 
-      <OrderList />
-      <OrderDetail />
+      <OrderList
+        orders={orders}
+      />
+
 
       <UserLogOut user={user} setUser={setUser} />
     </>
