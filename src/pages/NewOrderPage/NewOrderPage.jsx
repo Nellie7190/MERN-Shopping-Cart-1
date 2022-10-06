@@ -38,6 +38,12 @@ export default function NewOrderPage({ user, setUser }) {
   // results in the effect running after
   // the FIRST render only
 
+  /*--- Event Handlers ---*/
+  async function handleAddToOrder(itemId) {
+    // Alert Message Popup SPAM
+    alert(`add item: ${itemId}`)
+  }
+
   return (
     <main className="NewOrderPage">
       <aside>
@@ -52,6 +58,7 @@ export default function NewOrderPage({ user, setUser }) {
       </aside>
       <MenuList
         menuItems={menuItems.filter(item => item.category.name === activeCat)}
+        handleAddToOrder={handleAddToOrder}
       />
       <OrderDetail order={cart} />
     </main>
