@@ -6,7 +6,14 @@ module.exports = {
   addToCart,
   setItemQtyInCart,
   checkout,
+  history,
 };
+
+async function history(req, res) {
+  // Get history of orders
+  const history = await Order.find({ user: req.user._id, isPaid: true })
+  res.json(history)
+}
 
 // A cart is the unpaid order for a user
 async function cart(req, res) {
