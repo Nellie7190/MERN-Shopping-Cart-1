@@ -1,17 +1,19 @@
 import OrderListItem from "../OrderListItem/OrderListItem";
 
 export default function OrderList({ orders }) {
-  const orderListItem = orders.map(o => {
+  // console.log(orders)
+  const orderListItem = orders.map(o => 
+    // console.log(o)
     <OrderListItem
       order={o}
       key={o._id}
     />
-  })
+  )
 
   return (
-    <main>
-      <h1>DSJFKL:DJFSKLD</h1>
+    <>
+      <h1>This is the OrderList component</h1>
       {orderListItem}
-    </main>
+    </>
   )
 }

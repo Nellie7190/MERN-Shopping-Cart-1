@@ -5,7 +5,7 @@ import OrderDetail from '../../components/OrderDetail/OrderDetail';
 import OrderList from '../../components/OrderList/OrderList';
 
 export default function OrderHistoryPage({ user, setUser }) {
-  const [orders, setOrders] = useState([])
+  const [orders, setOrders] = useState([]);
 
 
   useEffect(function () {
@@ -14,17 +14,14 @@ export default function OrderHistoryPage({ user, setUser }) {
       setOrders(orders);
     }
     getOrders();
-  }, [])
+  }, []);
 
   return (
     <>
       <h1>OrderHistoryPage</h1>
-
       <OrderList
         orders={orders}
       />
-
-
       <UserLogOut user={user} setUser={setUser} />
     </>
   );

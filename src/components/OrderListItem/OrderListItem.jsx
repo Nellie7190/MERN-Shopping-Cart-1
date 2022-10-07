@@ -1,9 +1,11 @@
+import OrderDetail from "../OrderDetail/OrderDetail"
 
 export default function OrderListItem({ order }) {
+
   return (
-    <div>
-      {order}
-    </div>
+    <>
+      <OrderDetail order={order} />
+    </>
 
   )
 }
